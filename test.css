@@ -1,0 +1,45 @@
+.main{
+    width: 1000px;
+    margin: 0 auto;
+}
+.detail{
+    margin-top: 20px;
+}
+.detail .unfinished{
+    color: red;
+    margin-right: 100px;
+}
+.tesk-list{
+    list-style: none;
+}
+.tesk-list li{
+    width: 300px;
+    border: 1px solid #ccc;
+}
+.delet{
+    float: right;
+    margin: 0 5px;
+    cursor: pointer;
+    display: none;
+}
+.todo:hover .delet{
+    display: block;
+}
+.completed{
+    color: #ccc;
+}
+.editoring{
+    width: 280px;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+}
+.editor .editored{
+    display: none;
+}
+.editoring{
+    display: none;
+}
+.editor .editoring{
+    display: block;
+}

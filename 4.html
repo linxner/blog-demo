@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./test.css">
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="input-tesk">
+            <h3>添加任务</h3>
+            <input type="text" placeholder="请输入任务" @keyup.enter="addTodo" v-model="todo">
+            <div class="detail" v-show="list.length">
+                <span class="unfinished">{{unfinishedTask}}个任务未完成</span>
+                <input type="button" value="所有任务">
+                <input type="button" value="未完成任务">
+                <input type="button" value="已完成任务">
+            </div>
+        </div>
+        <div class="has-test">
+            <h3>任务列表：</h3>
+            <div v-show="!list.length">还没有添加任何任务</div>
+            <ul class="tesk-list">
+                <li v-for="item in list" :class="{completed:item.isChecked,editor:item===editorTasks}" class="todo">
+                    <div class="editored">
+                        <input type="checkbox" v-model="item.isChecked">
+                        <span @dblclick="editorTask(item)">{{item.title}}</span>
+                        <span class="delet" @click="delet">×</span>
+                    </div>
+                    <input type="text" class="editoring" v-model="item.title" v-focus="editorTasks===item" @blur="editorTasked(item)" @keyup.13="editorTasked(item)"
+                        @keyup.esc="cancelTasked(item)">
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="./app.js"></script>
+
+</html>
